@@ -1,4 +1,49 @@
-/*
-  Переменные для вашего проекта
-  и их переопределение под различные устройства
-*/
+:root {
+  --font-family: 'IBM Plex Mono';
+  --header-rec-content: "rec";
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #000028;
+    --background-image: url(../images/cover-image-dark.png);
+
+    --main-header-color: #DB00FF;
+    --main-header-shadow: #FF0070;
+    --accent-color: #FF0070;
+    --navigation-link-color: #FF0070;
+    --hover-outline: 1px solid rgba(255, 0, 112, 0.40);
+
+    --main-text-color: #F1B2CE;
+    --section-title-color: #FF0070;
+    --article-title-color: #000028;
+    --border-color: #FF0070;
+    --link-underline-color: #F1B2CE;
+    --link-shadow-color: #FF0070;
+
+    --header-rec-visible: visible;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #fff1f7;
+    --background-image: url(../images/cover-image-light.png);
+
+    --main-header-color: #FFC2E6;
+    --main-header-shadow: #FF0070;
+
+    --navigation-link-color: #353430;
+    --hover-outline: 1px solid rgba(50, 49, 45, 0.40);
+
+    --main-text-color: #353430;
+    
+    --section-title-cover: var(--main-text-color);
+    --article-title-color: var(--main-text-color);
+    --border-color: #FF0070;
+    --link-underline-color: #353430;
+    --link-shadow-color: #FFC2E6;
+  }
+}

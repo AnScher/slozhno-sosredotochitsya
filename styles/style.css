@@ -1,5 +1,220 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+/* Common */
+
+.shadow {
+  text-shadow: 4px 4px 0 var(--accent-color, #ff0070);
+}
+
+/* Page */
 
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  --transition-duration: 0.25s;
+  background: var(--background-image, '../images/cover-image.png') no-repeat top center,
+              var(--background-color);
+  background-size: auto;
+  background-attachment: fixed;
+  color: var(--main-text-color);
+  transition-duration: var(--transition-duration);
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; 
+}
+
+/* Header*/
+
+.header,
+.footer {
+  display: grid;
+  padding: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  min-block-size: 100vh;
+}
+
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.decorated-zone::before {
+  border-inline-end: 1px solid var(--secondary-color, #ff0070);
+  border-block-start: 1px solid var(--secondary-color, #ff0070);
+  inset-inline-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  inset-block-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+}
+
+.decorated-zone::after {
+  border-inline-start: 1px solid var(--secondary-color, #ff0070);
+  border-block-end: 1px solid var(--secondary-color, #ff0070);
+  inset-inline-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  inset-block-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+}
+
+.header__theme-menu {
+  justify-self: flex-end;
+  padding: 65px 0;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.header__theme-menu-button {
+  background: transparent;
+  color: var(--navigation-link-color);
+  border: none;
+  line-height: 18px;
+  padding: 2px 13px;
+  text-transform: lowercase;
+  cursor: pointer;
+}
+
+.header__theme-menu-button:active {
+  border-color: currentColor;
+  cursor: default;
+  pointer-events: none;
+}
+
+.header__theme-menu-button:hover {
+  outline: var(--hover-outline, #ff0070);
+}
+
+.header__theme-menu-button:focus {
+  outline: 0;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end-color: currentColor;
+}
+
+.header__rec {
+  display: inline-flex;
+  position: absolute;
+  z-index: -1;
+  visibility: var(--header-rec-visible, visible);
+  inset-inline-end: 20px;
+  inset-block-start: 18px;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__rec::before {
+  content: var(--header-rec-content);
+  text-transform: uppercase;
+  color: var(--accent-color, #FF0070);
+  line-height: 25px;
+}
+
+.header__rec::after {
+  content: "";
+  inline-size: 10px;
+  block-size: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--accent-color, #FF0070);
+  background-color: var(--accent-color, #FF0070);
+  display: inline-block;
+}
+
+.main__title {
+  color: var(--main-header-color, #DB00FF);
+  font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 82.5%;
+  margin-block-end: 55px;
+}
+
+.header__subtitle {
+  font-weight: 700;
+  line-height: 23.4px; 
+  margin-block-end: 66px;
+}
+
+/* Main */
+
+.main {
+  display: grid;
+  gap: 50px;
+  padding: 40px 10px;
+}
+
+.section {
+  display: grid;
+  gap: 20px;
+}
+
+.section__title {
+  background-color: transparent;
+  color: var(--section-title-color, #FF0070);
+  font-weight: var(--font-weight-bold);
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.articles__list {
+  display: grid;
+  gap: 20px;
+}
+
+.article {
+  display: grid;
+  gap: 10px;
+}
+
+.title {
+  color: var(--article-title-color, #FF0070);
+  font-weight: var(--font-weight-normal);
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.title-decor {
+  background-color: var(--section-title-cover, #FF0070);
+  color: var(--article-title-color, #000028);
+}
+
+.article__link {
+  text-decoration: none;
+}
+
+.article__link:hover {
+  text-decoration: underline;
+  color: currentColor;
+}
+
+.article__link:focus {
+  outline: 0;
+}
+
+.article__link:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+.gallery__list {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery__list-image {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.footer {
+  place-content: center;
+}
+
+.footer__title {
+  text-shadow: 2px 2px 0px var(--accent-color, #FF0070);
 }
